@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"strconv"
 
-	t "github.com/w0jtek/piotr0222/token"
+	"math/rand"
 )
 
 // This value specifies how many time a user can retry gessing.
 const allowedAttempts = 3
 
 func main() {
-	token := t.Generate()
+	token := generateToken()
 
 	for i := 0; i < allowedAttempts; i++ {
 		userToken := getUserInput()
@@ -26,6 +26,14 @@ func main() {
 	}
 
 	fmt.Println("Sorry, you have failed!")
+}
+
+func generateToken() (result [4]int) {
+	for i := 0; i < 4; i++ {
+		result[i] = rand.Intn(6)
+	}
+
+	return
 }
 
 func getUserInput() (result [4]int) {
