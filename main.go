@@ -26,6 +26,7 @@ func main() {
 	}
 
 	fmt.Println("Sorry, you have failed!")
+	fmt.Println(token)
 }
 
 func generateToken() (result [4]int) {
@@ -53,7 +54,7 @@ func getUserInput() (result [4]int) {
 		}
 
 		// and finally - we need to check if it is a number in scope [1,6]
-		if intValue < 0 || intValue > 6 {
+		if intValue < 1 || intValue > 6 {
 			fmt.Printf("The number %d is out of allowed range [1,6] - try again:\n", intValue)
 			i--
 			continue
